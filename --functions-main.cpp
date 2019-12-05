@@ -5,28 +5,20 @@
 
 using namespace std;
 
-int lines = 0;
-
 struct Name{    //---------------------------------------------------
     string nombre;
     string apellido;
 };
-struct Empleado{    //-----------------------------------------------
+struct NomData{
     string fecha;
     Name name;
     string ss;
     double horas;
     double rate;
-};
-struct Salary{
-    double base;            //Establece un struct
-    double overtime;        //que facilita utilizar
-    double deduccion;       //multiples funciones para
-    double neto;            //realizar los calculos.
-};
-struct NomData{
-    Empleado empleado;  // fecha, name.nombre, name.apellido, ss, horas, rate
-    Salary salario;     // base, overtime, deduccion, neto
+    double base;            
+    double overtime;    
+    double deduccion;      
+    double neto;
 };
 
 string intro();
