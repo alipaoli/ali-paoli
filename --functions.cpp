@@ -18,7 +18,7 @@ struct Empleado{    //-----------------------------------------------
     double horas;
     double rate;
 };
-struct Salary{  //@@@@@@@@@@@@@@@@@@@ REPETIDO @@@@@@@@@@@@@@@@@@@@@
+struct Salary{
     double base;            //Establece un struct
     double overtime;        //que facilita utilizar
     double deduccion;       //multiples funciones para
@@ -31,10 +31,16 @@ struct NomData{
 
 string intro();
 vector<NomData> Leer(string);
+void Write(vector<double>);
+void Menu();
+void CalcSelect();
+void CalcSingle();
+void Sort();
+void Nomina(int);
 
 
 int main(){
-    string archivo = "text.txt";
+    string archivo = "text.txt"; //-------- DEBUGGING ------------------------
     vector<NomData> nomData;
     nomData = Leer(archivo);
     return 0;
@@ -53,36 +59,19 @@ string intro(){
     cin >> nombre;
     return nombre;
 }
+
 vector<NomData> Leer(string csv){
     ifstream empleados(csv);
     if (!empleados.is_open())
         cout << "ERROR: No se pudo encontrar unarchivo con el nombre " << csv << endl;
-
     vector<NomData> nom;
     string line;
     while (getline(empleados, line)){
            NomData data(line);
            nom.push_back(data);
-
     }
   empleados.close();
 }
-
-
-
-
-
-
-
-
-
-void Write(vector<double>);
-void Menu();
-void CalcSelect();
-void CalcSingle();
-
-void Sort();
-void Search();//?????????????????????????????????????????????????????
 
 void Write(vector<double> nomData){
   fstream nomina;
@@ -94,8 +83,6 @@ void Write(vector<double> nomData){
   }
   nomina.close();
 }
-
-void Nomina(int);
 
 void ShowMenu(){
     cout << "MENU PRINCIPAL: De las siguientes opciones, entre su seleccion y oprima ENTER: \n " << endl;
@@ -141,6 +128,7 @@ void Menu(){
         CalcSingle();
         break;
     default:
+        Nomina();
         break;
     }
 }
