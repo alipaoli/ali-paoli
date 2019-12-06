@@ -1,0 +1,12 @@
+struct Empleado{    //-----------------------------------------------
+    string fecha;
+    Name name;
+    string ss;
+    double horas;
+    double rate;
+};
+struct Salary{
+    double base;            //Establece un struct
+    double overtime;        //que facilita utilizar
+    double deduccion;       //multiples funciones para
+    double neto;            //realizar los calculos.
