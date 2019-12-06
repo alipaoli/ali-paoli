@@ -57,12 +57,14 @@ string intro(){
 
 vector<NomData> Leer(string csv){
     ifstream empleados(csv);
-    if (!empleados.is_open())
-        cout << "ERROR: No se pudo encontrar unarchivo con el nombre " << csv << endl;
+    if (!empleados.is_open()){
+        cout << "ERROR: No se pudo encontrar un archivo con el nombre " << csv << endl;
+        //insertar funcion que pregunta si desea leer otro archivo --------------------------------------------------
+    }
     vector<NomData> nom;
     string line;
     while (getline(empleados, line)){
-           NomData data(line);
+           NomData data(line);      //----------------------------funcion data -----------------------
            nom.push_back(data);
     }
   empleados.close();
